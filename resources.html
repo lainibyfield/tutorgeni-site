@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TutorGeni — Client Resources</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#111111; --cream:#f8fafa; --cyan:#00c2cb; --teal:#2a878f; --teal-light:#e4f5f6; --warm:#f0fafa; --muted:#5a6b6c; --rule:#c8e8ea; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:"DM Sans",sans-serif;background:var(--cream);color:var(--ink);font-size:16px;line-height:1.7;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column;}
+    .site-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:0.7rem 2.5rem;background:rgba(248,250,250,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);}
+    .nav-logo{display:flex;align-items:center;text-decoration:none;}
+    .nav-logo img{height:38px;width:auto;}
+    .nav-links{display:flex;gap:0.25rem;align-items:center;}
+    .nav-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;color:var(--muted);padding:0.45rem 0.9rem;border-bottom:2px solid transparent;transition:color 0.2s,border-color 0.2s;}
+    .nav-links a:hover{color:var(--teal);}
+    .nav-links a.active{color:var(--teal);border-bottom-color:var(--cyan);}
+
+    main{flex:1;padding:7rem 2rem 4rem;max-width:700px;margin:0 auto;width:100%;}
+    .page-label{font-size:0.7rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:0.5rem;}
+    h1{font-family:"Playfair Display",serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;line-height:1.15;margin-bottom:0.5rem;}
+    .page-sub{color:var(--muted);font-size:0.95rem;font-weight:300;margin-bottom:2.5rem;max-width:460px;}
+    .rule{width:40px;height:2px;background:var(--cyan);margin:1rem 0 2.5rem;}
+
+    /* Resource groups */
+    .group{margin-bottom:3rem;}
+    .group-title{font-family:"Playfair Display",serif;font-style:italic;font-size:1.1rem;color:var(--teal);margin-bottom:1rem;font-weight:400;}
+    .resource-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;}
+    .resource-card{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;border:1px solid var(--rule);background:white;text-decoration:none;color:var(--ink);transition:border-color 0.2s,box-shadow 0.2s,transform 0.15s;}
+    .resource-card:hover{border-color:var(--cyan);box-shadow:0 3px 16px rgba(0,194,203,0.10);transform:translateY(-1px);}
+    .rc-icon{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+    .rc-meet{background:#e8f4ff;}
+    .rc-teams{background:#e8eeff;}
+    .rc-miro{background:#fff3e0;}
+    .rc-wbfi{background:#e8fff3;}
+    .rc-pdf{background:#fff0f0;}
+    .rc-text h4{font-size:0.88rem;font-weight:500;margin-bottom:0.1rem;}
+    .rc-text p{font-size:0.76rem;color:var(--muted);line-height:1.4;}
+    .rc-arrow{margin-left:auto;color:var(--rule);font-size:1rem;flex-shrink:0;transition:color 0.2s,transform 0.2s;}
+    .resource-card:hover .rc-arrow{color:var(--cyan);transform:translateX(3px);}
+
+    /* Download card — full width */
+    .resource-card.full{grid-column:1/-1;border-color:var(--teal);background:var(--teal-light);}
+    .resource-card.full:hover{border-color:var(--cyan);}
+    .resource-card.full .rc-text h4{font-size:0.95rem;}
+
+    /* Note */
+    .note{margin-top:2rem;padding:1rem 1.2rem;border-left:3px solid var(--cyan);background:white;font-size:0.83rem;color:var(--muted);line-height:1.65;}
+    .note strong{color:var(--ink);}
+
+    footer{background:#0a0a0a;color:rgba(255,255,255,0.3);text-align:center;padding:1.4rem;font-size:0.76rem;}
+    footer a{color:var(--cyan);text-decoration:none;}
+
+    @media(max-width:540px){.resource-grid{grid-template-columns:1fr;} .resource-card.full{grid-column:auto;}}
+  .site-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;padding:0.65rem 2rem;background:rgba(248,250,250,0.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule,#c8e8ea);gap:1.5rem;}
+    .nav-logo{display:flex;align-items:center;gap:0.45rem;text-decoration:none;margin-right:auto;}
+    .nav-icon{height:34px;width:auto;}
+    .nav-logo-text{font-family:"DM Sans",sans-serif;font-size:0.92rem;font-weight:500;color:#1a5a60;letter-spacing:0.05em;}
+    .nav-center{display:flex;gap:0.1rem;}
+    .nav-center a{font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;color:#5a6b6c;padding:0.45rem 0.9rem;border-bottom:2px solid transparent;transition:color 0.2s,border-color 0.2s;}
+    .nav-center a:hover{color:#2a878f;}
+    .nav-center a.active{color:#2a878f;border-bottom-color:#00c2cb;}
+    .hamburger{background:none;border:1px solid #c8e8ea;padding:0.4rem 0.55rem;cursor:pointer;display:flex;flex-direction:column;gap:4px;border-radius:2px;position:relative;}
+    .hamburger span{display:block;width:18px;height:2px;background:#1a5a60;}
+    .dropdown{position:absolute;top:calc(100% + 1px);right:0;background:white;border:1px solid #c8e8ea;border-top:2px solid #00c2cb;min-width:200px;box-shadow:0 8px 24px rgba(0,0,0,0.08);display:none;flex-direction:column;}
+    .dropdown.open{display:flex;}
+    .dropdown a{font-size:0.82rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;color:#111;padding:0.8rem 1.2rem;transition:background 0.15s;}
+    .dropdown a:hover{background:#e4f5f6;color:#2a878f;}
+    .dropdown-divider{height:1px;background:#c8e8ea;margin:0.25rem 0;}
+  </style>
+</head>
+<body>
+<nav class="site-nav">
+  <a class="nav-logo" href="index.html">
+    <img class="nav-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgNjAgMTYwIDIzMCIgaGVpZ2h0PSI0NCIgd2lkdGg9IjMwIj48cGF0aCBmaWxsPSIjMDBjMmNiIiBkPSJNIDc0LjE3NTc4MSAyMzguMzE2NDA2IEMgNzUuNzczNDM4IDIyOS43MTA5MzggNzkuMDE1NjI1IDIyMS44MDg1OTQgODQuNTg5ODQ0IDIxNi44ODY3MTkgQyA4NC41ODk4NDQgMjE2Ljg4NjcxOSAxMTMuNTU4NTk0IDIyMi41OTM3NSAxMTguMzYzMjgxIDIxOS40NzY1NjIgQyAxMjcuNDQ1MzEyIDIxMy41OTc2NTYgMTI0LjQ1NzAzMSAxODUuMzE2NDA2IDEyMS44MTI1IDE3Mi4wNzAzMTIgQyAxMTcuNTAzOTA2IDE1MC41MjczNDQgOTAuMTkxNDA2IDE1Ni4xOTkyMTkgOTAuMzA0Njg4IDEzOC45MTc5NjkgQyA5MC4zNTU0NjkgMTMwLjg1OTM3NSA5MS45NjA5MzggMTI2LjExMzI4MSA5NC41MDM5MDYgMTE4LjI2OTUzMSBDIDEwMS4yMDMxMjUgMTAxLjc2OTUzMSA5OC45NjA5MzggODguNDQ5MjE5IDg0Ljk2MDkzOCA4My45ODQzNzUgQyA2OC43MjI2NTYgNzguODAwNzgxIDU3Ljk4MDQ2OSA4OS4zODI4MTIgNTUuODI4MTI1IDEwNS4zODY3MTkgQyA1My43MjI2NTYgMTIxLjEwMTU2MiA1OS4zMTY0MDYgMTM4LjcxMDkzOCA3NC4yODkwNjIgMTMxLjQ4MDQ2OSBDIDcyLjY2MDE1NiAxMzcuOTYwOTM4IDY2LjYwMTU2MiAxNDIuMzYzMjgxIDU0LjEzMjgxMiAxNDIuMDcwMzEyIEMgMzQuMTY0MDYyIDE0MS41OTM3NSAzMC4wNTA3ODEgMTQ1LjA5NzY1NiAyMi44Mzk4NDQgMTUzLjUgQyAxNS4wNDI5NjkgMTYyLjU5NzY1NiAxLjUyNzM0NCAxODEuMTU2MjUgNy4xNjAxNTYgMTg2LjE2MDE1NiBDIDIyLjI3MzQzOCAxOTkuNTk3NjU2IDQxLjg2NzE4OCAxOTcuOTEwMTU2IDU2LjQzMzU5NCAxOTkuMzE2NDA2IEMgNTIuNTE5NTMxIDIwMi4xMTcxODggMzguNTAzOTA2IDIwNy40MDYyNSAyOC4wNjI1IDIwNC42ODc1IEMgMjUuODEyNSAyNDUuMjg1MTU2IDYyLjAwNzgxMiAyNzUuMjQyMTg4IDk1LjgwMDc4MSAyNzUuMjQyMTg4IEMgMTE1Ljc0NjA5NCAyNzUuMjQyMTg4IDEzNC44ODY3MTkgMjYzLjMzNTkzOCAxNDAuMTY3OTY5IDI1OS42NzU3ODEgQyA4Ni43MDMxMjUgMjgwLjg3NSA3MS4zNjcxODggMjUzLjQyOTY4OCA3NC4xNzU3ODEgMjM4LjMxNjQwNiBaIE0gNzQuMTc1NzgxIDIzOC4zMTY0MDYgIiBmaWxsLW9wYWNpdHk9IjEiIGZpbGwtcnVsZT0ibm9uemVybyIvPjwvc3ZnPg==" alt="TutorGeni" />
+    <span class="nav-logo-text">tutorgeni.us</span>
+  </a>
+  <div class="nav-center">
+    <a href="index.html" class="">Tutoring</a>
+    <a href="coaching.html" class="">Coaching</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="dropdown" id="dropdown">
+    <a href="resources.html">Client Resources</a>
+    <div class="dropdown-divider"></div>
+    <a href="index.html#rates">Rates</a>
+    <a href="index.html#policies">Policies</a>
+    <a href="index.html#faq">FAQ</a>
+  </div>
+</nav>
+
+<main>
+  <div class="page-label">For Current Students</div>
+  <h1>Client Resources</h1>
+  <p class="page-sub">Everything you need to join a session or request a package — all in one place.</p>
+  <div class="rule"></div>
+
+  <div class="group">
+    <p class="group-title">Join your session</p>
+    <div class="resource-grid">
+      <a class="resource-card" href="https://meet.google.com" target="_blank" rel="noopener">
+        <div class="rc-icon rc-meet">📹</div>
+        <div class="rc-text"><h4>Google Meet</h4><p>Primary video platform for sessions</p></div>
+        <span class="rc-arrow">&#8599;</span>
+      </a>
+      <a class="resource-card" href="https://teams.microsoft.com" target="_blank" rel="noopener">
+        <div class="rc-icon rc-teams">💬</div>
+        <div class="rc-text"><h4>Microsoft Teams</h4><p>Alternate video platform</p></div>
+        <span class="rc-arrow">&#8599;</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="group">
+    <p class="group-title">Whiteboard tools</p>
+    <div class="resource-grid">
+      <a class="resource-card" href="https://miro.com" target="_blank" rel="noopener">
+        <div class="rc-icon rc-miro">🟡</div>
+        <div class="rc-text"><h4>Miro</h4><p>Collaborative whiteboard for working problems together</p></div>
+        <span class="rc-arrow">&#8599;</span>
+      </a>
+      <a class="resource-card" href="https://whiteboard.fi" target="_blank" rel="noopener">
+        <div class="rc-icon rc-wbfi">✏️</div>
+        <div class="rc-text"><h4>Whiteboard.fi</h4><p>Simple live whiteboard — no account needed</p></div>
+        <span class="rc-arrow">&#8599;</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="group">
+    <p class="group-title">Package request</p>
+    <div class="resource-grid">
+      <a class="resource-card full" href="package-request.pdf" download>
+        <div class="rc-icon rc-pdf">📄</div>
+        <div class="rc-text">
+          <h4>Download Package Request Form</h4>
+          <p>Fill out and email to <span id="em-res"></span> with subject line <strong>PACKAGE REQUEST</strong></p>
+        </div>
+        <span class="rc-arrow">&#8595;</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>First time?</strong> Your tutor will send you a direct link before your session. These links are here as a backup so you can always find your way in.
+  </div>
+</main>
+
+<footer>&copy; 2026 TutorGeni &nbsp;&middot;&nbsp; tutorgeni.us &nbsp;&middot;&nbsp; Melbourne, Florida</footer>
+
+<script>
+  const u = ['the','brain','trainer'], d = ['gmail','.com'];
+  const addr = u.join('') + '@' + d.join('');
+  document.getElementById('em-res').textContent = addr;
+</script>
+</body>
+</html>
